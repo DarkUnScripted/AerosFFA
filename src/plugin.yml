@@ -1,0 +1,12 @@
+name: AerosFFA
+version: 1.0.0-Alpha
+author: DarkUnScripted
+main: net.darkunscripted.AerosFFA.Main
+
+commands:
+  arena:
+    description: creating arenas
+  spawn:
+    description: setting spawns in a arena
+  setlobby:
+    description: setting the main lobby
