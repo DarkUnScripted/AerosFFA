@@ -10,3 +10,7 @@ commands:
     description: setting spawns in a arena
   setlobby:
     description: setting the main lobby
+  leave:
+    description: leaving a map
+  chat:
+    description: changing chat channels

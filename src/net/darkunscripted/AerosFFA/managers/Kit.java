@@ -24,4 +24,24 @@ public class Kit {
         SpawnData.kits.add(this);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<ItemStack> getItems() {
+        return items;
+    }
+
+    public HashMap<ItemStack, Integer> getItemSlots() {
+        return itemSlots;
+    }
+
+    public void setItems(ArrayList<ItemStack> items) {
+        this.items = items;
+    }
+
+    public void setItemSlots(HashMap<ItemStack, Integer> itemSlots) {
+        this.itemSlots = itemSlots;
+    }
+
 }

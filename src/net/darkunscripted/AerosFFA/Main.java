@@ -1,13 +1,8 @@
 package net.darkunscripted.AerosFFA;
 
-import net.darkunscripted.AerosFFA.commands.ArenaCommand;
-import net.darkunscripted.AerosFFA.commands.LobbyCommand;
-import net.darkunscripted.AerosFFA.commands.SpawnCommand;
+import net.darkunscripted.AerosFFA.commands.*;
 import net.darkunscripted.AerosFFA.data.SpawnData;
-import net.darkunscripted.AerosFFA.events.onClick;
-import net.darkunscripted.AerosFFA.events.onDrop;
-import net.darkunscripted.AerosFFA.events.onInteract;
-import net.darkunscripted.AerosFFA.events.onJoin;
+import net.darkunscripted.AerosFFA.events.*;
 import net.darkunscripted.AerosFFA.managers.ArenaManager;
 import net.darkunscripted.AerosFFA.managers.FileManager;
 import org.bukkit.Bukkit;
@@ -41,6 +36,8 @@ public class Main extends JavaPlugin {
         getCommand("arena").setExecutor(new ArenaCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());
         getCommand("setlobby").setExecutor(new LobbyCommand());
+        getCommand("leave").setExecutor(new LeaveCommand());
+        getCommand("chat").setExecutor(new ChatCommand());
     }
 
     public void registerEvents(){
@@ -48,6 +45,7 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new onJoin(), this);
         getServer().getPluginManager().registerEvents(new onClick(), this);
         getServer().getPluginManager().registerEvents(new onInteract(), this);
+        getServer().getPluginManager().registerEvents(new onChat(), this);
     }
 
     public void registerCommands(){

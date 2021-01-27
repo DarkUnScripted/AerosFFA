@@ -2,6 +2,7 @@ package net.darkunscripted.AerosFFA.commands;
 
 import net.darkunscripted.AerosFFA.data.SpawnData;
 import net.darkunscripted.AerosFFA.managers.Arena;
+import net.darkunscripted.AerosFFA.managers.InventoryManager;
 import net.darkunscripted.AerosFFA.utils.Utils;
 import net.minecraft.server.v1_12_R1.CommandExecute;
 import org.bukkit.World;
@@ -24,7 +25,11 @@ public class LeaveCommand extends CommandExecute implements CommandExecutor, Lis
                 }
             }
             if(checker){
-                p.getInventory().clear();
+                InventoryManager.clearInventory(p);
+                if(SpawnData.lobby != null) {
+                    p.teleport(SpawnData.lobby);
+                }
+                InventoryManager.giveSelector(p);
             }else{
                 p.sendMessage(Utils.chat("&b&lAerosFFA &7>> &cYou are not in a Map!"));
             }
