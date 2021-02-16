@@ -13,6 +13,6 @@ public class SpawnData {
     public static ArrayList<Arena> Arenas = new ArrayList<Arena>();
     public static ArrayList<Kit> kits = new ArrayList<Kit>();
     public static Location lobby;
-    public static HashMap<Block, Kit> kitArmorStands = new HashMap<Block, Kit>();
+    public static HashMap<Location, Kit> kitArmorStands = new HashMap<Location, Kit>();
 
 }

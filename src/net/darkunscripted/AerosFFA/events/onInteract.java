@@ -31,8 +31,8 @@ public class onInteract implements Listener {
         }
         if(e.getClickedBlock() != null) {
             if (e.getClickedBlock().getType().equals(Material.ARMOR_STAND)) {
-                if (SpawnData.kitArmorStands.containsKey(e.getClickedBlock())) {
-                    Kit kit = SpawnData.kitArmorStands.get(e.getClickedBlock());
+                if (SpawnData.kitArmorStands.containsKey(e.getClickedBlock().getLocation())) {
+                    Kit kit = SpawnData.kitArmorStands.get(e.getClickedBlock().getLocation());
                     InventoryManager.giveKit(e.getPlayer(), kit);
                 }
             }

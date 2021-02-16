@@ -2,6 +2,7 @@ package net.darkunscripted.AerosFFA.managers;
 
 import net.darkunscripted.AerosFFA.data.SpawnData;
 import net.darkunscripted.AerosFFA.utils.Utils;
+import net.minecraft.server.v1_12_R1.ItemArmor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -27,8 +28,22 @@ public class InventoryManager {
     }
 
     public static void giveKit(Player player, Kit kit){
+        clearInventory(player);
         for(ItemStack item : kit.getItems()){
-            player.getInventory().setItem(kit.getItemSlots().get(item), item);
+            if(isArmor(item)){
+                final String typeNameString = item.getType().name();
+                if (typeNameString.endsWith("_HELMET")) {
+                    player.getInventory().setItem(103, item);
+                }else if(typeNameString.endsWith("_CHESTPLATE")){
+                    player.getInventory().setItem(102, item);
+                }else if(typeNameString.endsWith("_LEGGINGS")){
+                    player.getInventory().setItem(101, item);
+                }else if(typeNameString.endsWith("_BOOTS")){
+                    player.getInventory().setItem(100, item);
+                }
+            }else {
+                player.getInventory().addItem(item);
+            }
         }
     }
 
@@ -75,6 +90,20 @@ public class InventoryManager {
             MapGUI.setItem(i, arenaItem);
         }
         player.openInventory(MapGUI);
+    }
+
+    public static boolean isArmor(final ItemStack itemStack) {
+        if (itemStack == null)
+            return false;
+        final String typeNameString = itemStack.getType().name();
+        if (typeNameString.endsWith("_HELMET")
+                || typeNameString.endsWith("_CHESTPLATE")
+                || typeNameString.endsWith("_LEGGINGS")
+                || typeNameString.endsWith("_BOOTS")) {
+            return true;
+        }
+
+        return false;
     }
 
 }

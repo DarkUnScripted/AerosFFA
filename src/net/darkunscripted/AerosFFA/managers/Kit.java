@@ -9,13 +9,11 @@ import java.util.HashMap;
 public class Kit {
 
     private String name;
-    private ArrayList<ItemStack> items = new ArrayList<ItemStack>();
-    private HashMap<ItemStack, Integer> itemSlots = new HashMap<ItemStack, Integer>();
+    private ItemStack[] items;
 
-    public Kit(String name, ArrayList<ItemStack> items, HashMap<ItemStack, Integer> itemslots){
+    public Kit(String name, ItemStack[] items){
         this.name = name;
         this.items = items;
-        this.itemSlots = itemslots;
         SpawnData.kits.add(this);
     }
 
@@ -28,20 +26,12 @@ public class Kit {
         return name;
     }
 
-    public ArrayList<ItemStack> getItems() {
+    public ItemStack[] getItems() {
         return items;
     }
 
-    public HashMap<ItemStack, Integer> getItemSlots() {
-        return itemSlots;
-    }
-
-    public void setItems(ArrayList<ItemStack> items) {
+    public void setItems(ItemStack[] items) {
         this.items = items;
-    }
-
-    public void setItemSlots(HashMap<ItemStack, Integer> itemSlots) {
-        this.itemSlots = itemSlots;
     }
 
 }
