@@ -14,9 +14,8 @@ public class onChat implements Listener {
     @EventHandler
     public void onChat(AsyncPlayerChatEvent e){
         Player player = e.getPlayer();
-        if(PlayerData.playerChat.containsKey(player)) {
-            if(PlayerData.playerChat.get(player).equals(ChatState.ARENA)) {
-                e.setCancelled(true);
+        if(PlayerData.playerChat.containsKey(player.getUniqueId())) {
+            if(PlayerData.playerChat.get(player.getUniqueId()).equals(ChatState.ARENA)) {
                 List<Player> playersInMap = player.getWorld().getPlayers();
                 e.getRecipients().clear();
                 for (Player p : playersInMap) {

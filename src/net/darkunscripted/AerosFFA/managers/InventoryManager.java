@@ -28,21 +28,22 @@ public class InventoryManager {
     }
 
     public static void giveKit(Player player, Kit kit){
-        clearInventory(player);
         for(ItemStack item : kit.getItems()){
-            if(isArmor(item)){
-                final String typeNameString = item.getType().name();
-                if (typeNameString.endsWith("_HELMET")) {
-                    player.getInventory().setItem(103, item);
-                }else if(typeNameString.endsWith("_CHESTPLATE")){
-                    player.getInventory().setItem(102, item);
-                }else if(typeNameString.endsWith("_LEGGINGS")){
-                    player.getInventory().setItem(101, item);
-                }else if(typeNameString.endsWith("_BOOTS")){
-                    player.getInventory().setItem(100, item);
+            if(item != null) {
+                if (isArmor(item)) {
+                    final String typeNameString = item.getType().name();
+                    if (typeNameString.endsWith("_HELMET")) {
+                        player.getInventory().setItem(103, item);
+                    } else if (typeNameString.endsWith("_CHESTPLATE")) {
+                        player.getInventory().setItem(102, item);
+                    } else if (typeNameString.endsWith("_LEGGINGS")) {
+                        player.getInventory().setItem(101, item);
+                    } else if (typeNameString.endsWith("_BOOTS")) {
+                        player.getInventory().setItem(100, item);
+                    }
+                } else {
+                    player.getInventory().addItem(item);
                 }
-            }else {
-                player.getInventory().addItem(item);
             }
         }
     }

@@ -30,6 +30,7 @@ public class ChatCommand extends CommandExecute implements CommandExecutor, List
                             }
                         }else{
                             PlayerData.playerChat.put(p.getUniqueId(), ChatState.ARENA);
+                            p.sendMessage(Utils.chat("&b&lAerosFFA &7>> &aChanged chat to Arena mode!"));
                         }
                     }else if(args[0].equalsIgnoreCase("global")){
                         if(PlayerData.playerChat.containsKey(p.getUniqueId())){
@@ -41,6 +42,7 @@ public class ChatCommand extends CommandExecute implements CommandExecutor, List
                             }
                         }else{
                             PlayerData.playerChat.put(p.getUniqueId(), ChatState.GLOBAL);
+                            p.sendMessage(Utils.chat("&b&lAerosFFA &7>> &aChanged chat to Global mode!"));
                         }
                     }else{
                         p.sendMessage(Utils.chat("&b------&e&lAeros&b------"));
@@ -50,6 +52,8 @@ public class ChatCommand extends CommandExecute implements CommandExecutor, List
                     p.sendMessage(Utils.chat("&b------&e&lAeros&b------"));
                     p.sendMessage(Utils.chat("&e- /chat <Global | Arena>"));
                 }
+            }else{
+                p.sendMessage(Utils.chat("&b&lAerosFFA &7>> &cYou dont have permission to perform this command!"));
             }
         }else{
             s.sendMessage(Utils.chat("&b&lAerosFFA &7>> &cOnly a player can perform this command!"));

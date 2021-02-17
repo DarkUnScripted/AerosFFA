@@ -5,6 +5,7 @@ import net.darkunscripted.AerosFFA.data.SpawnData;
 import net.darkunscripted.AerosFFA.events.*;
 import net.darkunscripted.AerosFFA.managers.ArenaManager;
 import net.darkunscripted.AerosFFA.managers.FileManager;
+import net.darkunscripted.AerosFFA.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -89,12 +90,16 @@ public class Main extends JavaPlugin {
 //    }
 
     public void saveLobby(){
-        cfgm.arenascfg.set("lobby.location.x", SpawnData.lobby.getX());
-        cfgm.arenascfg.set("lobby.location.y", SpawnData.lobby.getY());
-        cfgm.arenascfg.set("lobby.location.z", SpawnData.lobby.getX());
-        cfgm.arenascfg.set("lobby.location.pitch", SpawnData.lobby.getPitch());
-        cfgm.arenascfg.set("lobby.location.yaw", SpawnData.lobby.getYaw());
-        cfgm.arenascfg.set("lobby.location.world", SpawnData.lobby.getWorld().getName());
+        if(SpawnData.lobby != null) {
+            cfgm.arenascfg.set("lobby.location.x", SpawnData.lobby.getX());
+            cfgm.arenascfg.set("lobby.location.y", SpawnData.lobby.getY());
+            cfgm.arenascfg.set("lobby.location.z", SpawnData.lobby.getX());
+            cfgm.arenascfg.set("lobby.location.pitch", SpawnData.lobby.getPitch());
+            cfgm.arenascfg.set("lobby.location.yaw", SpawnData.lobby.getYaw());
+            cfgm.arenascfg.set("lobby.location.world", SpawnData.lobby.getWorld().getName());
+        }else{
+            this.getServer().getConsoleSender().sendMessage(Utils.chat("&c[ERROR] No lobby location set!"));
+        }
     }
 
     public void loadLobby(){
