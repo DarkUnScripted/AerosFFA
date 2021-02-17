@@ -27,6 +27,10 @@ public class onInteract implements Listener {
         if(e.getItem() != null) {
             if (e.getItem().getType().equals(Material.NETHER_STAR) && e.getItem().getItemMeta().getDisplayName().equalsIgnoreCase(Utils.chat("&b&lChoose Map"))) {
                 InventoryManager.arenaGUI(p);
+            }else if(e.getItem().getType().equals(Material.BARRIER) && e.getItem().getItemMeta().getDisplayName().equalsIgnoreCase(Utils.chat("&c&lLeave"))){
+                InventoryManager.clearInventory(p);
+                p.teleport(SpawnData.lobby);
+                InventoryManager.giveSelector(p);
             }
         }
         if(e.getClickedBlock() != null) {
