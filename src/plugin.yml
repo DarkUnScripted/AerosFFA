@@ -14,3 +14,5 @@ commands:
     description: leaving a map
   chat:
     description: changing chat channels
+  kit:
+    description: main kit command

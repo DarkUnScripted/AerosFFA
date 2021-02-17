@@ -29,7 +29,9 @@ public class onInteract implements Listener {
                 InventoryManager.arenaGUI(p);
             }else if(e.getItem().getType().equals(Material.BARRIER) && e.getItem().getItemMeta().getDisplayName().equalsIgnoreCase(Utils.chat("&c&lLeave"))){
                 InventoryManager.clearInventory(p);
-                p.teleport(SpawnData.lobby);
+                if(SpawnData.lobby != null) {
+                    p.teleport(SpawnData.lobby);
+                }
                 InventoryManager.giveSelector(p);
             }
         }

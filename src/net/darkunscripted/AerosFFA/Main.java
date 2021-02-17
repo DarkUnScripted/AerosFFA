@@ -38,6 +38,7 @@ public class Main extends JavaPlugin {
         getCommand("setlobby").setExecutor(new LobbyCommand());
         getCommand("leave").setExecutor(new LeaveCommand());
         getCommand("chat").setExecutor(new ChatCommand());
+        getCommand("kit").setExecutor(new KitCommand());
     }
 
     public void registerEvents(){
